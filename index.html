@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tufail Anjum - To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
+    <div class="layout">
+      <aside class="sidebar glass" id="sidebar">
+        <div class="brand">
+          <div class="logo">TA</div>
+          <div>
+            <h1>TaskPro</h1>
+            <p>To-Do App</p>
+          </div>
+        </div>
+
+        <p class="menu-title">MAIN MENU</p>
+        <nav id="menu">
+          <a href="#all" class="nav-link active" data-route="all">All Tasks</a>
+          <a href="#active" class="nav-link" data-route="active"
+            >Pending Tasks</a
+          >
+          <a href="#completed" class="nav-link" data-route="completed"
+            >Completed</a
+          >
+        </nav>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <div class="main">
+        <header class="topbar glass">
+          <div class="topbar-left">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Toggle menu"
+              aria-controls="sidebar"
+              aria-expanded="true"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <h2 id="pageTitle">Tasks</h2>
+          </div>
+
+          <div class="top-right">
+            <div class="profile">
+              <div class="avatar">TA</div>
+              <span class="uname"></span>
+            </div>
+          </div>
+        </header>
+
+        <main class="content">
+          <div class="head-row">
+            <div>
+              <h3>Tasks</h3>
+              <p>Manage and track your daily tasks.</p>
+            </div>
+            <button class="btn-dark" id="addBtn">+ Add Task</button>
+          </div>
+
+          <div class="stats">
+            <div class="card glass">
+              <span>Total Tasks</span>
+              <h4 id="totalNum">0</h4>
+            </div>
+
+            <div class="card glass">
+              <span>Pending</span>
+              <h4 id="activeNum">0</h4>
+            </div>
+
+            <div class="card glass">
+              <span>Completed</span>
+              <h4 id="doneNum">0</h4>
+            </div>
+          </div>
+
+          <div class="table-box glass">
+            <div class="toolbar">
+              <input type="text" id="searchInp" placeholder="Search tasks..." />
+
+              <select id="prioFilter">
+                <option value="All">All Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>TASK</th>
+                  <th>CATEGORY</th>
+                  <th>DUE DATE</th>
+                  <th>PRIORITY</th>
+                  <th>STATUS</th>
+                  <th class="right">ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="taskBody"></tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal hide" id="modal">
+      <form class="modal-box glass" id="taskForm">
+        <h4 id="modalTitle">Add Task</h4>
+
+        <input type="hidden" id="editId" />
+        <input type="text" id="titleInp" placeholder="Task title" required />
+        <input
+          type="text"
+          id="catInp"
+          placeholder="Category (e.g. Frontend)"
+          required
+        />
+        <input type="date" id="dateInp" required />
+
+        <select id="prioInp">
+          <option value="High">High</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Low">Low</option>
+        </select>
+
+        <div class="modal-btns">
+          <button type="button" class="btn-light" id="closeBtn">Cancel</button>
+          <button type="submit" class="btn-dark">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
